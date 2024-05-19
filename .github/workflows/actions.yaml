@@ -1,5 +1,5 @@
 name: Actions for RK2
-run-name: ${{ github.actor }} is running TPLab04
+run-name: ${{ github.actor }} is running Prototype
 on: [push]
 
 jobs:
@@ -10,10 +10,10 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Config with tests
-      run: cmake -H. -B ${{github.workspace}} -DBUILD_TESTS=ON
+      run: cmake -H. -B .build -DBUILD_TESTS=ON
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/.build
+      run: cmake --build .build
 
     - name: Run programm.cpp
       run: .build/prototype
