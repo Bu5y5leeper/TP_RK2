@@ -10,13 +10,13 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Config with tests
-      run: cmake -H. -B .build -DBUILD_TESTS=ON
+      run: cmake -H. -B ./.build -DBUILD_TESTS=ON
 
     - name: Build
-      run: cmake --build .build
+      run: cmake --build ./.build
 
     - name: Run programm.cpp
-      run: .build/prototype
+      run: ./.build/prototype
 
     - name: Run tests
-      run: .build/check
+      run: ./.build/check
