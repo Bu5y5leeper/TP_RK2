@@ -1,0 +1,22 @@
+name: Actions for RK2
+run-name: ${{ github.actor }} is running TPLab04
+on: [push]
+
+jobs:
+  prototype_cont:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Config with tests
+      run: cmake -H. -B ${{github.workspace}} -DBUILD_TESTS=ON
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/.build
+
+    - name: Run programm.cpp
+      run: .build/prototype
+
+    - name: Run tests
+      run: .build/check
