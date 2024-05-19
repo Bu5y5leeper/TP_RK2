@@ -1,0 +1,1 @@
+deb пакеты лежат в директории .build/packages/_CPack_Packages/Linux/DEB/

@@ -1,0 +1,10 @@
+Architecture: all
+Description: C++ prototype dev design pattern
+ Prototype dev design pattern
+Maintainer: Bu5y5leeper
+Package: prototype-dev
+Priority: optional
+Section: devel
+Version: 1.0-1
+Installed-Size: 150
+
