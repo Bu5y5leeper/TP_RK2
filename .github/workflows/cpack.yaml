@@ -42,15 +42,15 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: package
-          path: /packages/
+          path: ${{github.workspace}}/.build/
       - name: Make a release
         uses: ncipollo/release-action@v1.11.0
         with:
           tag: v1.1.0
-          artifacts: "/packages/*.deb,/packages/*.tar.gz,/packages/*.zip"
+          artifacts: "${{github.workspace}}/.build/*.deb,${{github.workspace}}/.build/*.tar.gz,${{github.workspace}}/.build/*.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: package
-          path: /packages/
+          path: ${{github.workspace}}/.build/
