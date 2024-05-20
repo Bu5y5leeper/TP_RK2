@@ -9,8 +9,6 @@ set(CPACK_SOURCE_IGNORE_FILES
 "\\\\.cmake;/build/;/.git/;/.github/"
 )
 
-set(CPACK_PACKAGE_DIRECTORY "${CMAKE_CURRENT_BIN_DIR}/_CPack_Packages")
-
 set(CPACK_SOURCE_GENERATOR "TGZ;ZIP")
 
 set(CPACK_DEBIAN_PACKAGE_NAME "prototype-dev")
