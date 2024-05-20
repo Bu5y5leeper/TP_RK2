@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: package
-          path: packages/*.deb
+          path: /packages/*.deb
   create_tag_and_release:
     needs: release
     runs-on: ubuntu-latest
