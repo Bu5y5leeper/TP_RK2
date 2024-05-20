@@ -22,7 +22,7 @@ jobs:
       - name: Build ConceptualExample
         run: cmake --build ${{github.workspace}}/.build/
       - name: Build package
-        run: cmake --build ${{github.workspace}}/.build/ --target package
+        run: sudo cmake --build ${{github.workspace}}/.build/ --target package
       - name: Package with CPack
         run: |
           cd build
@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: package
-          path: ${{github.workspace}}/.build/package/*.tar.gz
+          path: ${{github.workspace}}/.build/*.tar.gz
   create_tag_and_release:
     needs: release
     runs-on: ubuntu-latest
@@ -47,10 +47,10 @@ jobs:
         uses: ncipollo/release-action@v1.11.0
         with:
           tag: v1.1.0
-          artifacts: ".build/package/*.deb,.build/package/*.tar.gz,.build/package/*.zip"
+          artifacts: ".build/*.deb,.build/*.tar.gz,.build/*.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: package
-          path: .build/package
+          path: .build
