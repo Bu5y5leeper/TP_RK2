@@ -22,7 +22,7 @@ jobs:
       - name: Build ConceptualExample
         run: cmake --build ${{github.workspace}}/.build/
       - name: Build package
-        run: cmake --build ${{github.workspace}}/.build/ --target package .build
+        run: cmake --build ${{github.workspace}}/.build/ --target package ${{github.workspace}}/.build/
       - name: Package with CPack
         run: |
           cd build
