@@ -18,7 +18,7 @@ jobs:
       - name: Install CMake
         run: sudo apt-get install -y cmake
       - name: Config ConceptualExample
-        run: cmake ${{github.workspace}} -B ${{github.workspace}}/.build/ -D PRINT_VERSION=1.1.0 -D PACK=ON
+        run: cmake ${{github.workspace}} -B ${{github.workspace}}/.build/ -D PRINT_VERSION=1.2.0 -D PACK=ON
       - name: Build ConceptualExample
         run: cmake --build ${{github.workspace}}/.build/
       - name: Build package
@@ -46,7 +46,7 @@ jobs:
       - name: Make a release
         uses: ncipollo/release-action@v1.11.0
         with:
-          tag: v1.1.0
+          tag: v1.2.0
           artifacts: "/packages/*.deb,/packages/*.tar.gz,/packages/*.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Artifacts
