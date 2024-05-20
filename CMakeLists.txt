@@ -9,9 +9,6 @@ file(GLOB SOURCES "ConceptualExample01.hpp" , "ConceptualExample02.hpp" , "Progr
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 if(PACK)
-  install(TARGETS prototype
-    RUNTIME DESTINATION bin
-  )
   include(CPack.cmake)
 endif()
 
