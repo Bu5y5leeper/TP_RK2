@@ -32,12 +32,12 @@ jobs:
       #   with:
       #     name: package
       #     path: /packages/*.deb
-  create_tag_and_release:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+  # create_tag_and_release:
+  #   needs: release
+  #   runs-on: ubuntu-latest
+  #  steps:
+      # - name: Checkout repository
+      #   uses: actions/checkout@v4
       # - name: Download artifact
       #   uses: actions/download-artifact@v2
       #   with:
@@ -46,7 +46,7 @@ jobs:
       - name: Make a release
         uses: ncipollo/release-action@v1.11.0
         with:
-          tag: v1.2.0
+          tag: v1.3.0
           artifacts: "/packages/*.deb,/packages/*.tar.gz,/packages/*.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Artifacts
