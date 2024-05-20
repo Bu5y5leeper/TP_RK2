@@ -26,12 +26,12 @@ jobs:
       - name: Package with CPack
         run: |
           cd ${{github.workspace}}/.build/
-          cpack
+          sudo cpack
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: package
-          path: ${{github.workspace}}/.build/*.tar.gz
+          path: packages/*.deb
   create_tag_and_release:
     needs: release
     runs-on: ubuntu-latest
@@ -47,7 +47,7 @@ jobs:
         uses: ncipollo/release-action@v1.11.0
         with:
           tag: v1.1.0
-          artifacts: ".build/*.deb,.build/*.tar.gz,.build/*.zip"
+          artifacts: "/packages/*.deb,/packages/*.tar.gz,/packages/*.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Artifacts
         uses: actions/upload-artifact@v4
